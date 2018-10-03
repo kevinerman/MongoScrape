@@ -34,6 +34,10 @@ mongoose.connect(MONGODB_URI);
 
 // starting the request on the website
 
+app.delete("/drop", function (req,res) {
+    db.Article.remove();
+});
+
 app.get("/scrape", function (req, res) {
 
     request("https://old.reddit.com/r/HeroesofTheStorm", function (error, response, html) {
@@ -72,7 +76,7 @@ app.get("/scrape", function (req, res) {
 
             results.title = slicedTitle;
             results.link = link;
-            });
+            
             console.log(results);
 
             db.Article.create(results)
@@ -82,6 +86,7 @@ app.get("/scrape", function (req, res) {
                 .catch(function (err) {
                     return res.json(err);
                 })
+            });
         });
     });
 
