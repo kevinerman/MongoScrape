@@ -8,7 +8,7 @@ var logger = require("morgan");
 
 var cheerio = require("cheerio");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 var db = require("./models");
 
