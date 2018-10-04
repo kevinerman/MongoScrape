@@ -3,10 +3,13 @@ $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].blurb + "<br />" + data[i].link + "</p>");
   }
 });
 
+function reloadPage() {
+  location = location;
+};
 
 // Whenever someone clicks a p tag
 $(document).on("click", "p", function() {
@@ -41,6 +44,19 @@ $(document).on("click", "p", function() {
       }
     });
 });
+
+$(document).on("click", "#scrapeButton", function() {
+  $.ajax({
+    method: "GET",
+    url: "/scrape/"
+  })
+  reloadPage();
+})
+
+
+$(document).on("click", "#clearArticles", function() {
+  $("#articles").empty();
+})
 
 // When you click the savenote button
 $(document).on("click", "#savenote", function() {

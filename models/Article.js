@@ -9,10 +9,14 @@ var ArticleSchema = new Schema({
   // `title` is required and of type String
   title: {
     type: String,
-    required: true
+    required: true,
   },
   // `link` is required and of type String
   link: {
+    type: String,
+    required: true
+  },
+  blurb: {
     type: String,
     required: true
   },
@@ -27,6 +31,7 @@ var ArticleSchema = new Schema({
 
 // This creates our model from the above schema, using mongoose's model method
 var Article = mongoose.model("Article", ArticleSchema);
+ArticleSchema.index({name: title})
 
 // Export the Article model
 module.exports = Article;
