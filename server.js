@@ -67,6 +67,7 @@ app.get("/scrape", function (req, res) {
 
       //pushing the title, link, and sliced blurb into our results array to display 
 
+      results._id = title;
       results.title = title;
       results.link = link;
       results.blurb = slicedBlurb;
