@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Scraping With Mongoose</title>
     <style>
-      body { background-color: #F2F6D0 }
+      body { background-image: linear-gradient(to right,darkblue, darkred)};
       #wrapper {
         width: 960px;
         margin-left: auto;
@@ -12,10 +12,12 @@
         padding-top: 5%;
       }
       #articles {
+        color: white;
+        margin-top: 5%;
         display: inline-block;
-        overflow: auto;
-        width: 60%;
-        height: 700px;
+        overflow: none;
+        width: 80%;
+        height: auto;
       }
       #notes {
         float: right;
@@ -34,15 +36,33 @@
         height: 200px;
         font-size: 18px;
       }
+      h1 {
+        font-size: 400%;
+        color: white;
+      }
+      button {
+        background-color:black;
+        color:white;
+        padding: 20px;
+        width: 10%;
+      }
+      a {
+        background-color: black;
+        color:white;
+      }
+      
     </style>
   </head>
   <body>
     <div id="wrapper">
-      <h1>Note Scraper</h1>
+      
+      <center>
+      <h1>Video Game Scrape</h1>
+    </center>
       <button id="scrapeButton" style="float:left">New Articles</button>
       <button id="clearArticles" style="float: right">Clear Articles</button>
-      <div id="articles"></div>
-      <div id="notes"></div>
+      <div id="articles"style="float:left"></div>
+      <div id="notes" style="float:right"></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="app.js"></script>

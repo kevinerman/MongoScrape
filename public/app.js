@@ -3,7 +3,7 @@ $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
     // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].blurb + "<br />" + data[i].link + "</p>");
+    $("#articles").append("<p data-id='" + data[i]._id + "'>" + "<h2>" + data[i].title + "</h2>" + "<br />" + data[i].blurb + "<br />" + "<a href='" + data[i].link + "'target ='_blank' </a>" + data[i].link + "</p>");
   }
 });
 
@@ -11,8 +11,8 @@ function reloadPage() {
   location = location;
 };
 
-// Whenever someone clicks a p tag
-$(document).on("click", "p", function() {
+// Whenever someone clicks an h2 tag
+$(document).on("click", "h2", function() {
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the p tag
